@@ -1,7 +1,7 @@
 resource "yandex_compute_instance" "nat" {
-  name        = "hw2-nat"
+  name = "hw2-nat"
   platform_id = "standard-v3"
-  zone        = var.zone
+  zone = var.zone
 
   resources {
     cores  = 2
@@ -12,14 +12,14 @@ resource "yandex_compute_instance" "nat" {
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.id
-      size     = 10
+      size = 10
     }
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.public.id
-    nat                = true
-    ip_address         = "10.10.1.254"
+    subnet_id = yandex_vpc_subnet.public.id
+    nat = true
+    ip_address = "10.10.1.254"
     security_group_ids = [yandex_vpc_security_group.nat_sg.id]
   }
 

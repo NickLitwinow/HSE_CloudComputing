@@ -54,8 +54,8 @@ resource "yandex_vpc_security_group" "internal_sg" {
   # Allow SSH from public subnet (NAT/Jump host)
   ingress {
     protocol = "TCP"
-    description    = "SSH from Public Subnet"
-    port           = 22
+    description = "SSH from Public Subnet"
+    port = 22
     v4_cidr_blocks = ["10.10.1.0/24"]
   }
 

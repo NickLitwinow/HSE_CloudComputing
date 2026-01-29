@@ -3,7 +3,7 @@ terraform {
 
   required_providers {
     yandex = {
-      source  = "yandex-cloud/yandex"
+      source = "yandex-cloud/yandex"
       version = ">= 0.88.0"
     }
   }
@@ -11,14 +11,11 @@ terraform {
 
 provider "yandex" {
   service_account_key_file = var.sa_key_file
-  cloud_id                 = var.cloud_id
-  folder_id                = var.folder_id
-  zone                     = var.zone
+  cloud_id = var.cloud_id
+  folder_id = var.folder_id
+  zone = var.zone
 }
 
 data "yandex_compute_image" "ubuntu" {
   family = "ubuntu-2204-lts"
 }
-
-# NAT Instance Image (common solution for NAT) or simply standard ubuntu with iptables
-# For homework, standard ubuntu with NAT is expected.
